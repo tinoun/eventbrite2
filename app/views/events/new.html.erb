@@ -1,0 +1,32 @@
+<h1>Crée un evenement</h1>
+
+<%= form_for @event, url: events_path do |f| %>
+
+ 	<div class="field">
+    <%= f.label :Nom %><br/>
+    <%= f.text_field :title, autofocus: true, autocomplete: "titre" %>
+ 	 </div>
+
+     <div class="field">
+    <%= f.label :Quoi? %><br />
+    <%= f.text_area :descr, size: "60x12" %>
+  	</div>
+
+   <div class="field">
+    <%= f.label :Ou? %><br />
+    <%= f.text_field :place, autocomplete: "Où se passe l'evenement" %>
+ 	 </div>
+
+  	<div class="field">
+    <%= f.label :Quand? %><br />
+    <%= f.datetime_field :date %>
+ 	</div>
+
+ 	 <div class="actions">
+    <%= f.submit "Créer" %>
+  	</div>
+
+
+<% end %>
+
+<%= debug current_user.id %>

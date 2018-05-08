@@ -1,0 +1,54 @@
+
+
+
+<h1>Evenements à venir</h1>
+
+	<% @event.each do |e| %>
+		<% if e.date >= Date.today %>
+
+			<p>Nom : 
+				<%= e.title %>
+			</p>
+			<p>
+				Description :
+				<%= e.descr %>
+			</p>
+			<p>
+				Ou ?
+				<%= e.place %>
+			</p>
+			<p>
+				Date :
+				<%= e.date %>
+			</p>
+			<a href="<%= event_path(e.id) %>" class="btn btn-lg btn-info" >Voir l'evenement</a>
+			<a href="<%= subscribe_event_path(e.id) %>" class="btn btn-lg btn-success">S'inscrire à l'evenement</a>
+		<% end %>
+
+	<% end %>
+
+<h1>Evenements passés</h1>
+
+	<% @event.each do |e| %>
+			<% if e.date < Date.today %>
+
+				<p>Nom : 
+					<%= e.title %>
+				</p>
+				<p>
+					Description :
+					<%= e.descr %>
+				</p>
+				<p>
+					Ou ?
+					<%= e.place %>
+				</p>
+				<p>
+					Date :
+					<%= e.date %>
+				</p>
+			<a href="<%= event_path(e.id) %>" class="btn btn-lg btn-info" >Voir l'evenement</a>
+			<a href="#" class="btn btn-lg btn-success disabled">S'inscrire à l'evenement</a>		
+			<% end %>
+
+	<% end %>

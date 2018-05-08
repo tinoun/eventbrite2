@@ -1,0 +1,19 @@
+<div class="container">
+
+	<h1 class="row"><%= @event.title %></h1>
+
+	<p>Le <%= @event.date %></p>
+	<p>A <%= @event.place %></p>
+	<p>Description <%= @event.descr %></p>
+
+	<h1 class="row">Listes des invités</h1>
+
+
+  <% @event.attendees.each do |att| %>
+  <p><%= att.username %></p>
+<% end %>
+
+
+
+	
+</div>
